@@ -15,6 +15,7 @@
 			<input type="submit" value="Login">
 		</form>
 	</div>
+    <div class="otpless"></div>
 
     <script type="text/javascript" src="https://otpless.com/auth.js"></script>
 <!-- Get user's whatsapp number and name -->
@@ -22,9 +23,9 @@
   function otpless(otplessUser) {
    var waName = otplessUser.waName;
    var waNumber = otplessUser.waNumber;
-   console.info(waName,waNumber)
    // Signup/signin the user and redirect to next page
-   document.getElementById('otpless').innerHTML = `
+   document.getElementsByClassName('otpless').innerHTML = `
+
    <h2>Hi ${waName} welcome !</h2>
    <h2>${waNumber}</h2>
    `;
