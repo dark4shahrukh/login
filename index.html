@@ -5,31 +5,33 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="login-box">
+	<div id="otpless"></div>
+	<div id="login-box-id" class="login-box">
 		<h1>Login</h1>
-		<form>
+		<form action="/">
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username" placeholder="Enter username">
 			<label for="password">Password</label>
 			<input type="password" id="password" name="password" placeholder="Enter password">
 			<input type="submit" value="Login">
 		</form>
+		<p>or</p>
+		
+		<script type="text/javascript" src="https://otpless.com/auth.js"></script>
+		<!-- Get user's whatsapp number and name -->
+		<script type="text/javascript">
+			function otpless(otplessUser) {
+				var waName = otplessUser.waName;
+				var waNumber = otplessUser.waNumber;
+				// Signup/signin the user and redirect to next page
+				document.getElementById('otpless').innerHTML = `
+					<h2>Hi ${waName} welcome !</h2>
+					<h2>${waNumber}</h2>
+				`;
+				document.getElementById('login-box-id').display=none;
+				//window.location.href = "welcome.html";
+			}
+		</script>
 	</div>
-    <div id="otpless"></div>
-
-    <script type="text/javascript" src="https://otpless.com/auth.js"></script>
-<!-- Get user's whatsapp number and name -->
-<script type="text/javascript">
-  function otpless(otplessUser) {
-   var waName = otplessUser.waName;
-   var waNumber = otplessUser.waNumber;
-   // Signup/signin the user and redirect to next page
-   document.getElementById('otpless').innerHTML = `
-
-   <h2>Hi ${waName} welcome !</h2>
-   <h2>${waNumber}</h2>
-   `;
-  }
-</script>
 </body>
 </html>
